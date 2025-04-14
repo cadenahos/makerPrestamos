@@ -1,0 +1,53 @@
+Debes desarrollar una API Web en .NET Core 6 u 8 para gestionar un sistema de préstamos
+bancarios. El sistema debe permitir a los usuarios:
+
+1. Solicitar un préstamo: Los usuarios pueden solicitar un préstamo indicando el monto
+y el plazo.
+2. Aprobar o rechazar préstamos: Los administradores del sistema pueden aprobar o
+rechazar las solicitudes de préstamo.
+3. Ver estado de los préstamos: Los usuarios pueden consultar el estado de sus
+préstamos aprobados o rechazados.
+Además, implementa una interfaz front-end en React o Razor Pages que consuma esta API.
+La interfaz debe permitir a los usuarios:
+• Enviar solicitudes de préstamo.
+• Consultar el estado de sus préstamos.
+• Los administradores pueden ver y cambiar el estado de los préstamos.
+Requerimientos:
+
+• Backend (Web API en .NET Core):
+o Implementar el sistema CRUD para préstamos y usuarios, respetando las
+reglas de negocio.
+o Aplicar un patrón de arquitectura limpia o hexagonal para separar las capas
+de negocio, infraestructura y aplicación.
+o Implementar caché para reducir las consultas repetitivas sobre el estado de
+los préstamos.
+o Asegurar la API usando JWT y asegurando que solo los administradores
+puedan aprobar o rechazar préstamos.
+o Implementar transacciones en el manejo de aprobaciones de préstamos,
+asegurando que las acciones sean consistentes.
+o Incluir tests unitarios para las operaciones críticas de la API.
+o Manejar adecuadamente los errores, devolviendo respuestas HTTP claras.
+o Se recomienda utilizar bases de datos relacionales, como PostgreSQL
+
+
+
+• Front-end (React o Razor Pages):
+o Crear una interfaz amigable que permita a los usuarios enviar solicitudes de
+préstamo y consultar su estado.
+o Implementar la autenticación y autorización mediante JWT, asegurando que
+solo los administradores puedan aprobar o rechazar préstamos.
+o Gestionar el estado de la aplicación de manera segura (uso de hooks o model
+binding).
+o Aplicar validaciones en el front-end para asegurar la correcta entrada de
+datos.
+o Si la prueba es solo Dev frontend puedes usar una Api publica existente,
+usar mocks de datos o local storage y debes hacer uso de estilos de un nivel
+más avanzado que mejore la experiencia de usuario.
+
+- La siguiente es la posible interfaz que ejemplifica el requerimiento buscado:
+Usuario: email: [usuario@test.com], password: 123
+Admin: email: [admin@test.com] password: 123
+1. Login
+
+2. Usuario que solicita préstamo:
+
