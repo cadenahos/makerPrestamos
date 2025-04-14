@@ -1,0 +1,313 @@
+.loan-application {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.loan-application h2 {
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+.form-hint {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.85rem;
+}
+
+.error-message {
+  background-color: #fff3f3;
+  color: #dc3545;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ffcdd2;
+}
+
+.loan-calculations {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+}
+
+.loan-calculations h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.loan-calculations p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+/* Loan Type Details Styles */
+.loan-type-details {
+  background-color: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 5px;
+  margin: 1.5rem 0;
+  border-left: 4px solid #4a90e2;
+}
+
+.loan-type-details h3 {
+  color: #333;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.loan-type-details p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.loan-type-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-label {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.info-value {
+  color: #333;
+  font-weight: 600;
+}
+
+.requirements-section {
+  margin-top: 1rem;
+}
+
+.requirements-section h4 {
+  color: #333;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.requirements-section ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.requirements-section li {
+  padding: 0.5rem 0;
+  color: #555;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.requirements-section li:before {
+  content: "✓";
+  color: #4a90e2;
+  position: absolute;
+  left: 0;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #357abd;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Loan Status Styles */
+.loan-status {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+}
+
+.loan-status h2 {
+  color: #333;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.loan-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+}
+
+.loan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.loan-header h3 {
+  color: #333;
+  margin: 0;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.status-approved {
+  background-color: #e3f9e5;
+  color: #1b873f;
+}
+
+.status-pending {
+  background-color: #fff8e6;
+  color: #946800;
+}
+
+.status-rejected {
+  background-color: #ffefef;
+  color: #c92a2a;
+}
+
+.loan-details {
+  margin-bottom: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.detail-row .label {
+  color: #666;
+}
+
+.detail-row .value {
+  color: #333;
+  font-weight: 500;
+}
+
+.loan-message {
+  padding: 1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+}
+
+.loan-message.pending {
+  background-color: #fff8e6;
+  color: #946800;
+}
+
+.loan-message.approved {
+  background-color: #e3f9e5;
+  color: #1b873f;
+}
+
+.loan-message.rejected {
+  background-color: #ffefef;
+  color: #c92a2a;
+}
+
+.no-loans {
+  text-align: center;
+  padding: 3rem;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-loans p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  color: #666;
+  padding: 3rem;
+}
+
+@media (max-width: 768px) {
+  .loan-application,
+  .loan-status {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .loans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-type-info {
+    grid-template-columns: 1fr;
+  }
+}
