@@ -10,7 +10,8 @@ const loanService = {
    * @returns {Promise} - Response with loan application details
    */
   applyForLoan: async (loanData) => {
-    const response = await api.post("/loans", loanData);
+    console.log(loanData);
+    const response = await api.post("/Loans", loanData);
     return response.data;
   },
 
@@ -29,7 +30,7 @@ const loanService = {
    * @returns {Promise} - Response with user's loans
    */
   getUserLoans: async () => {
-    const response = await api.get("/loans/user");
+    const response = await api.get("/Loans");
     return response.data;
   },
 

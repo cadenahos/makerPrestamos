@@ -75,8 +75,8 @@ const LoanApplication = ({ user }) => {
 
   const [formData, setFormData] = useState({
     loanType: "",
-    amount: "",
-    term: "",
+    Amount: "",
+    LoanTermMonths: "",
     purpose: "",
     employmentStatus: "",
     monthlyIncome: "",
@@ -114,12 +114,12 @@ const LoanApplication = ({ user }) => {
     }
 
     // Calculate loan payments when amount or term changes
-    if ((name === "amount" || name === "term") && formData.loanType) {
+    if ((name === "Amount" || name === "LoanTermMonths") && formData.loanType) {
       try {
         const calculationData = {
           loanType: formData.loanType,
-          amount: name === "amount" ? value : formData.amount,
-          term: name === "term" ? value : formData.term,
+          amount: name === "Amount" ? value : formData.Amount,
+          term: name === "LoanTermMonths" ? value : formData.LoanTermMonths,
         };
 
         if (calculationData.amount && calculationData.term) {
@@ -140,7 +140,15 @@ const LoanApplication = ({ user }) => {
     try {
       await loanService.applyForLoan({
         ...formData,
-        userId: user.id,
+        UserId: user.id,
+        user: {
+          id: 0,
+          name: "string",
+          email: "user@example.com",
+          password: "string",
+          createdAt: "2025-04-28T17:17:09.411Z",
+          updatedAt: "2025-04-28T17:17:09.411Z",
+        },
       });
 
       navigate("/status");
@@ -228,12 +236,12 @@ const LoanApplication = ({ user }) => {
         )}
 
         <div className="form-group">
-          <label htmlFor="amount">Monto del Préstamo</label>
+          <label htmlFor="Amount">Monto del Préstamo</label>
           <input
             type="number"
-            id="amount"
-            name="amount"
-            value={formData.amount}
+            id="Amount"
+            name="Amount"
+            value={formData.Amount}
             onChange={handleChange}
             min={selectedLoanType ? selectedLoanType.minAmount : "1000"}
             max={selectedLoanType ? selectedLoanType.maxAmount : "1000000"}
@@ -248,12 +256,12 @@ const LoanApplication = ({ user }) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="term">Plazo (meses)</label>
+          <label htmlFor="LoanTermMonths">Plazo (meses)</label>
           <input
             type="number"
-            id="term"
-            name="term"
-            value={formData.term}
+            id="LoanTermMonths"
+            name="LoanTermMonths"
+            value={formData.LoanTermMonths}
             onChange={handleChange}
             min={selectedLoanType ? selectedLoanType.minTerm : "6"}
             max={selectedLoanType ? selectedLoanType.maxTerm : "60"}

@@ -59,10 +59,62 @@ namespace backend.Controllers
         [HttpPost]
         public async Task<ActionResult<Loan>> CreateLoan(Loan loan)
         {
-            _context.Loans.Add(loan);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetLoan), new { id = loan.Id }, loan);
+            try
+            {
+                // Handle user separately to avoid duplicate email issues
+                if (loan.User != null)
+                {
+                    // Check if user with this email already exists
+                    var existingUser = await _context.Users
+                        .FirstOrDefaultAsync(u => u.Email == loan.User.Email);
+                    
+                    if (existingUser != null)
+                    {
+                        // Use existing user
+                        loan.UserId = existingUser.Id;
+                    }
+                    else
+                    {
+                        // Create new user
+                        var newUser = new User
+                        {
+                            Name = loan.User.Name,
+                            Email = loan.User.Email,
+                            // Copy other necessary properties
+                        };
+                        
+                        _context.Users.Add(newUser);
+                        await _context.SaveChangesAsync();
+                        
+                        // Set the user ID to the newly created user
+                        loan.UserId = newUser.Id;
+                    }
+                    
+                    // Clear the navigation property to prevent EF from tracking it
+                    loan.User = null;
+                }
+                
+                // Create the loan
+                _context.Loans.Add(loan);
+                await _context.SaveChangesAsync();
+                
+                // Load the user for the response
+                var createdLoan = await _context.Loans
+                    .Include(l => l.User)
+                    .FirstOrDefaultAsync(l => l.Id == loan.Id);
+                
+                return CreatedAtAction(nameof(GetLoan), new { id = loan.Id }, createdLoan);
+            }
+            catch (DbUpdateException ex)
+            {
+                // Log the exception details
+                return StatusCode(500, $"An error occurred while creating the loan: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                // Handle other exceptions
+                return StatusCode(500, $"An unexpected error occurred: {ex.Message}");
+            }
         }
 
         // PUT: api/Loans/5
